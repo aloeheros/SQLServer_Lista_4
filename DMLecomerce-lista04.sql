@@ -1,0 +1,30 @@
+USE [e-comerce];
+
+INSERT INTO tb_usuarios
+VALUES (1, 'AMANDA', 'AMANDA12', 'amanda@email.com', 'FotoDoPerfil'),
+(2, 'JONNY', 'JONY123', 'jonny@email.com', 'FOTO');
+
+INSERT INTO tb_produtos
+VALUES (1, 'SABONETE', 'SABONETE PARA CORPO CHEIRINHO DE BEBÊ', 2.29, 50, 'HIGIENE PESSOAL', 'IMGSABONETE'),
+(2, 'FILTRO DE CAFÉ', 'CAIXA COM 30 FILTROS', 14.19, 60, 'COZINHA', 'CAIXADOFILTRO'),
+(3, 'ESCOVA DE DENTES', 'CONTÉM 2 ESCOVAS DE DENTES', 21.99, 15, 'HIGIENE PESSOAL', 'FOTODASESCOVAS'),
+(4, 'BATATA DOCE', 'BATATA DOCE UNITÁRIA', 3.99, 80, 'HORTIFRUTI', 'FOTODABATATA'),
+(5, 'PÃO DE FORMA', 'PACOTE COM 30 FATIAS DE PÃO', 8.59, 20, 'PADARIA', 'FOTODOPACOTEDEPÃO');
+
+INSERT INTO tb_compras
+VALUES
+(1, 4, '28/07/2022'), (1, 1, '21/07/2022'), (2, 3, '19/07/2022'), (2, 5, '15/07/2022');
+
+SELECT produto FROM tb_produtos
+WHERE valor BETWEEN 1 AND 30;
+
+SELECT Email FROM tb_usuarios
+WHERE Email LIKE '%email.com';
+
+SELECT u.Nome from tb_usuarios AS u
+INNER JOIN tb_compras ON u.Id = fk_usuarios;
+
+SELECT Valor FROM tb_produtos;
+
+SELECT AVG(Valor) AS 'VALOR-MEDIO' FROM tb_produtos;
+
